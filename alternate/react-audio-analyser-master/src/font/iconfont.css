@@ -17,7 +17,7 @@
 
 .icon-stop:before { content: "\e62a"; }
 
-.icon-listening:before { content: "\e606"; }
+.icon-start:before { content: "\e606"; }
 
 .icon-pause:before { content: "\e607"; }
 
