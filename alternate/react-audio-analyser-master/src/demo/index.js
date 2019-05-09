@@ -47,6 +47,7 @@ export default class demo extends Component {
                     audioSrc: window.URL.createObjectURL(e)
                 })
                 console.log("succ stop", e)
+                // API.uploadToDatabase(e)  ??
             },
             onRecordCallback: (e) => {
                 console.log("recording", e)

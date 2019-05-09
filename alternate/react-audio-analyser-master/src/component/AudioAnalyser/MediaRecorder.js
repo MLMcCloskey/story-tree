@@ -10,7 +10,7 @@ const MediaRecorderFn = Target => {
     const constraints = {audio: true};
     const mp3Worker = new Worker(WebWorker);
     return class MediaRecorderClass extends Target {
-        static audioChunk = [] // 音频信息存储对象
+        static audioChunk = [] // create empty array to store audio data
         static mediaRecorder = null // 媒体记录对象
         static audioCtx = new (window.AudioContext || window.webkitAudioContext)(); // 音频上下文
 
@@ -194,6 +194,8 @@ const MediaRecorderFn = Target => {
             MediaRecorderClass.mediaRecorder.ondataavailable = (event) => {
                 MediaRecorderClass.checkAndExecFn(this.props.onRecordCallback, event.data);
                 MediaRecorderClass.audioChunk.push(event.data);
+                console.log(event.data);
+                // API.sendToDatabase(event.data)  ???
             }
             MediaRecorderClass.audioCtx.resume();
             MediaRecorderClass.mediaRecorder.start(timeslice);
